@@ -12,7 +12,6 @@
   authorized_key:
     key: "https://github.com/{{ item }}.keys"
     user: root
-  when: "not travis_ci"
   with_items:
     - ovv
     - mrasband
