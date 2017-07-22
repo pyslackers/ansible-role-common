@@ -12,11 +12,8 @@
   authorized_key:
     key: "https://github.com/{{ item }}.keys"
     user: root
-  with_items:
-    - ovv
-    - mrasband
-    - mikefromit
-    - seanson
+  with_items: "{{ github_users }}"
+  when: "github_users is defined"
 
 - name: Ssh configuration
   template:
