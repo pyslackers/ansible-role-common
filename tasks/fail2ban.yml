@@ -1,0 +1,30 @@
+---
+- name: Install fail2ban
+  apt:
+    pkg: fail2ban
+    state: latest
+  notify:
+    - restart fail2ban
+
+- name: Configure fail2ban
+  template:
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
+  with_items:
+    - etc/fail2ban/jail.local
+    - etc/fail2ban/fail2ban.local
+  notify:
+    - restart fail2ban
+
+- name: Ensure auth.log exists
+  copy:
+    dest: /var/log/auth.log
+    force: no
+    content: ""
+
+- name: Start fail2ban
+  service:
+    name: fail2ban
+    state: started
+    enabled: yes
+  when: systemd_enabled == true

@@ -1,0 +1,16 @@
+galaxy_info:
+  author: PySlackers
+  description: Common base for ansible configurable servers
+  company: PySlackers
+  license: MIT
+  min_ansible_version: 2.1
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions: 9
+  galaxy_tags:
+    - pyslackers
+    - common
+dependencies: []
