@@ -1,7 +1,5 @@
 ---
-
 - name: Restart ssh
   service:
-    name: ssh.service
+    name: ssh
     state: restarted
-  when: systemd_enabled == true

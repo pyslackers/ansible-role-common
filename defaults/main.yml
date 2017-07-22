@@ -1,4 +1,5 @@
 ---
+apt_cache_valid_time: 86000
 fail2ban_loglevel: 3
 fail2ban_logtarget: /var/log/fail2ban.log
 fail2ban_socket: /var/run/fail2ban/fail2ban.sock

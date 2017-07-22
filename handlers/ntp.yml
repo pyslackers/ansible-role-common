@@ -1,6 +1,5 @@
 ---
 - name: Restart ntp
   service:
-    name: ntp.service
+    name: ntp
     state: restarted
-  when: systemd_enabled == true

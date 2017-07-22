@@ -1,7 +1,5 @@
 ---
-
 - name: restart sysstat
   service:
-    name: sysstat.service
+    name: sysstat
     state: restarted
-  when: systemd_enabled == true
