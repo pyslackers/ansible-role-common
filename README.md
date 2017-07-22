@@ -3,7 +3,7 @@ Role Name
 
 [![Build Status](https://travis-ci.org/pyslackers/ansible-role-common.svg?branch=master)](https://travis-ci.org/pyslackers/ansible-role-common)
 
-A brief description of the role goes here.
+Base role required for servers to be configurable by ansible, with basic security measures in place
 
 Requirements
 ------------
