@@ -28,3 +28,11 @@
   tags:
     - server-setup
     - ufw
+
+- name: create user
+  become: true
+  user:
+    name: "{{ user }}"
+    shell: /bin/bash
+    home: "/home/{{ user }}"
+  when: "user is defined"
