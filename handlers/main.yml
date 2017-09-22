@@ -4,3 +4,4 @@
 - include: ntp.yml
 - include: sysstat.yml
 - include: ssh.yml
+- include: ufw.yml
