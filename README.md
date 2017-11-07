@@ -12,20 +12,26 @@ None
 
 Role Variables
 --------------
+* `hostname_override`: Customize the hostname.
+* `apt_cache_valid_time`: Update the apt cache if its older than the `apt_cache_valid_time`.
+* `base_packages`: List of commonly required packages.
+* `custom_packages`: Custom list of packages to install (default is empty).
 
-*`user`: If defined create sudo user and block root login
+* `github_users`: List of github users to authorized.
+* `ssh_keys`: List of ssh keys to authorized.
+* `ssh_port`: Ssh listen port.
 
-*`hostname_override`: Customize the hostname
-*`apt_cache_valid_time`: Update the apt cache if its older than the `apt_cache_valid_time`.
-*`base_packages`: List of commonly required packages.
-*`custom_packages`: Custom list of packages to install (default is empty).
+* `ufw_enabled`: Enable UFW.
+* `fail2ban_enabled`: Enable fail2ban.
 
-*`github_users`: List of github users to authorized.
-*`ssh_keys`: List of ssh keys to authorized.
-*`ssh_port`: Ssh listen port.
 
-*`ufw_enabled`: Enabled UFW
-*`fail2ban_enabled`: Enabled fail2ban
+* `user`: If defined create sudo user and block root login if one of `github_users` or `ssh_keys` is set.
+* `root_login`: Authorize root login (default to true).
+
+![warning](https://github.com/pyslackers/ansible-role-common/blob/master/warning.png "Warning")
+Make sure to have ssh access with another user before disabling `root_login`.
+
+
 
 Other available variables can be found in the `defaults/main.yml` file.
 

@@ -25,10 +25,10 @@ LogLevel INFO
 
 # Authentication:
 LoginGraceTime 120
-{% if user is defined and (github_users is defined or ssh_keys is defined) %}
-PermitRootLogin no
-{% else %}
+{% if root_login %}
 PermitRootLogin without-password
+{% else %}
+PermitRootLogin no
 {% endif %}
 StrictModes yes
 
@@ -90,7 +90,3 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 # PAM authentication, then enable this but set PasswordAuthentication
 # and ChallengeResponseAuthentication to 'no'.
 UsePAM yes
-
-{% if user is defined and (github_users is defined or ssh_keys is defined) %}
-AllowUsers {{ user }}
-{% endif %}

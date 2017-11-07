@@ -77,6 +77,7 @@ ntp_config_driftfile: /var/lib/ntp/ntp.drift
 
 
 # ssh.yml
+root_login: true
 ssh_port: 22
 
 # ufw.yml
