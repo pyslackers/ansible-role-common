@@ -8,12 +8,19 @@
     path: /etc/ssh
     state: directory
 
-- name: Set authorized keys
+- name: Set github authorized keys
   authorized_key:
     key: "https://github.com/{{ item }}.keys"
-    user: root
+    user: "{{ user | default(root) }}"
   with_items: "{{ github_users }}"
   when: "github_users is defined"
+
+- name: Set authorized keys
+  authorized_key:
+    key: "{{ item }}"
+    user: "{{ user | default(root) }}"
+  with_items: "{{ ssh_keys }}"
+  when: "ssh_keys is defined"
 
 - name: Ssh configuration
   template:

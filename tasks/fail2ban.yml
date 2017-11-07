@@ -4,7 +4,7 @@
     pkg: fail2ban
     state: latest
   notify:
-    - restart fail2ban
+    - Restart fail2ban
 
 - name: Configure fail2ban
   template:
@@ -14,7 +14,7 @@
     - etc/fail2ban/jail.local
     - etc/fail2ban/fail2ban.local
   notify:
-    - restart fail2ban
+    - Restart fail2ban
 
 - name: Ensure auth.log exists
   copy:

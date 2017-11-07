@@ -30,14 +30,11 @@
   apt:
     pkg: "{{ item }}"
     state: latest
-  with_items:
-    - build-essential
-    - curl
-    - git
-    - vim
-    - ntp
-    - ntpdate
-    - htop
-    - bash-completion
-    - ufw
-    - sudo
+  with_items: "{{ base_packages }}"
+
+- name: Install custom packages
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+  with_items: "{{ custom_packages }}"
+  when: custom_packages is defined

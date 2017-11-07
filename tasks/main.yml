@@ -4,6 +4,12 @@
     - server-setup
     - common
 
+- import_tasks: user.yml
+  tags:
+    - server-setup
+    - user
+  when: user is defined
+
 - import_tasks: fail2ban.yml
   tags:
     - server-setup
@@ -28,11 +34,5 @@
   tags:
     - server-setup
     - ufw
+  when: ufw_enabled
 
-- name: create user
-  become: true
-  user:
-    name: "{{ user }}"
-    shell: /bin/bash
-    home: "/home/{{ user }}"
-  when: "user is defined"

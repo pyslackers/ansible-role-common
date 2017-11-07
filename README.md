@@ -8,33 +8,45 @@ Base role required for servers to be configurable by ansible, with basic securit
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+None
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+*`user`: If defined create sudo user and block root login
 
-Dependencies
-------------
+*`apt_cache_valid_time`: Update the apt cache if its older than the `apt_cache_valid_time`.
+*`base_packages`: List of commonly required packages.
+*`custom_packages`: Custom list of packages to install (default is empty).
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+*`github_users`: List of github users to authorized.
+*`ssh_keys`: List of ssh keys to authorized.
+*`ssh_port`: Ssh listen port.
+
+Other available variables can be found in the `defaults/main.yml` file.
+
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+```yml
+- role: pyslackers.common
+  github_users:
+    - ovv
+    - mrasband
+  ssh_port: 2222
+  ssh_keys:
+    - ssh-rsa AAAAA...
+  custom_packages:
+    - gzip
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+None
