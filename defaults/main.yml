@@ -16,6 +16,7 @@ base_packages:
 
 
 # fail2ban.yml
+fail2ban_enabled: true
 fail2ban_loglevel: 3
 fail2ban_logtarget: /var/log/fail2ban.log
 fail2ban_socket: /var/run/fail2ban/fail2ban.sock

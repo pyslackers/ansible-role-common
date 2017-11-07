@@ -25,7 +25,7 @@ LogLevel INFO
 
 # Authentication:
 LoginGraceTime 120
-{% if user is defined %}
+{% if user is defined and (github_users is defined or ssh_keys is defined) %}
 PermitRootLogin no
 {% else %}
 PermitRootLogin without-password
@@ -91,6 +91,6 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 # and ChallengeResponseAuthentication to 'no'.
 UsePAM yes
 
-{% if user is defined %}
+{% if user is defined and (github_users is defined or ssh_keys is defined) %}
 AllowUsers {{ user }}
 {% endif %}

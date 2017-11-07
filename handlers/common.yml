@@ -1,5 +1,6 @@
 ---
 - name: Restart cron
+  become: true
   service:
     name: cron
     state: restarted

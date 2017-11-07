@@ -1,5 +1,6 @@
 ---
 - name: Sudo group
+  become: true
   group:
     name: sudo
     state: present
@@ -15,6 +16,7 @@
     createhome: yes
 
 - name: Passwordless sudo
+  become: true
   lineinfile:
     dest: /etc/sudoers
     state: present

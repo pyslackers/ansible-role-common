@@ -15,6 +15,7 @@ Role Variables
 
 *`user`: If defined create sudo user and block root login
 
+*`hostname_override`: Customize the hostname
 *`apt_cache_valid_time`: Update the apt cache if its older than the `apt_cache_valid_time`.
 *`base_packages`: List of commonly required packages.
 *`custom_packages`: Custom list of packages to install (default is empty).
@@ -23,8 +24,10 @@ Role Variables
 *`ssh_keys`: List of ssh keys to authorized.
 *`ssh_port`: Ssh listen port.
 
-Other available variables can be found in the `defaults/main.yml` file.
+*`ufw_enabled`: Enabled UFW
+*`fail2ban_enabled`: Enabled fail2ban
 
+Other available variables can be found in the `defaults/main.yml` file.
 
 Example Playbook
 ----------------

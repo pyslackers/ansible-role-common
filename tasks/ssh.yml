@@ -1,9 +1,11 @@
 - name: Create /root/.ssh directory
+  become: true
   file:
     path: /root/.ssh
     state: directory
 
 - name: Create /etc/ssh directory
+  become: true
   file:
     path: /etc/ssh
     state: directory
@@ -23,6 +25,7 @@
   when: "ssh_keys is defined"
 
 - name: Ssh configuration
+  become: true
   template:
     src: etc/ssh/sshd_config
     dest: /etc/ssh/sshd_config

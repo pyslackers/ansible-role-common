@@ -6,6 +6,7 @@
 
 # May change due to https://github.com/ansible/ansible-modules-core/issues/3523
 - name: Install aptitude
+  become: true
   apt:
     pkg: aptitude
     state: latest
@@ -27,12 +28,14 @@
     - Restart cron
 
 - name: Install base packages
+  become: true
   apt:
     pkg: "{{ item }}"
     state: latest
   with_items: "{{ base_packages }}"
 
 - name: Install custom packages
+  become: true
   apt:
     pkg: "{{ item }}"
     state: latest
