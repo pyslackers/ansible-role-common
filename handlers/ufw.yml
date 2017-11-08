@@ -1,3 +1,5 @@
-- name: enable ufw
+---
+- name: Enable ufw
+  become: true
   ufw:
     state: enabled

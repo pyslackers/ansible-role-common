@@ -1,0 +1,25 @@
+---
+- name: Sudo group
+  become: true
+  group:
+    name: sudo
+    state: present
+
+- name: Create user
+  become: true
+  user:
+    name: "{{ user }}"
+    shell: /bin/bash
+    groups: sudo
+    append: yes
+    home: "/home/{{ user }}"
+    createhome: yes
+
+- name: Passwordless sudo
+  become: true
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: '^%sudo'
+    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'

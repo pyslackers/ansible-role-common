@@ -1,5 +1,22 @@
 ---
+
+# common.yml
 apt_cache_valid_time: 86000
+base_packages:
+  - build-essential
+  - curl
+  - git
+  - vim
+  - ntp
+  - ntpdate
+  - htop
+  - bash-completion
+  - ufw
+  - sudo
+
+
+# fail2ban.yml
+fail2ban_enabled: true
 fail2ban_loglevel: 3
 fail2ban_logtarget: /var/log/fail2ban.log
 fail2ban_socket: /var/run/fail2ban/fail2ban.sock
@@ -24,6 +41,8 @@ fail2ban_services:
     filter: sshd
     logpath: /var/log/auth.log
 
+
+# ntp.yml
 ntp_pkg_state: 'installed'
 ntp_service_state: 'started'
 ntp_service_enabled: 'yes'
@@ -55,3 +74,11 @@ ntp_config_multicastclient: ''
 ntp_config_tinker_panic_enabled: ''
 
 ntp_config_driftfile: /var/lib/ntp/ntp.drift
+
+
+# ssh.yml
+root_login: true
+ssh_port: 22
+
+# ufw.yml
+ufw_enabled: true

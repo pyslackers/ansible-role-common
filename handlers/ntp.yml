@@ -1,5 +1,6 @@
 ---
 - name: Restart ntp
+  become: true
   service:
     name: ntp
     state: restarted

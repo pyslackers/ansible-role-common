@@ -1,21 +1,31 @@
 - name: Create /root/.ssh directory
+  become: true
   file:
     path: /root/.ssh
     state: directory
 
 - name: Create /etc/ssh directory
+  become: true
   file:
     path: /etc/ssh
     state: directory
 
-- name: Set authorized keys
+- name: Set github authorized keys
   authorized_key:
     key: "https://github.com/{{ item }}.keys"
-    user: root
+    user: "{{ user | default(root) }}"
   with_items: "{{ github_users }}"
   when: "github_users is defined"
 
+- name: Set authorized keys
+  authorized_key:
+    key: "{{ item }}"
+    user: "{{ user | default(root) }}"
+  with_items: "{{ ssh_keys }}"
+  when: "ssh_keys is defined"
+
 - name: Ssh configuration
+  become: true
   template:
     src: etc/ssh/sshd_config
     dest: /etc/ssh/sshd_config

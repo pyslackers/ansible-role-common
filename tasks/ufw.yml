@@ -1,7 +1,8 @@
 ---
-- name: enable ssh ufw
+- name: UFW allow SSH
+  become: true
   ufw:
     rule: allow
     name: OpenSSH
   notify:
-    - enable ufw
+    - Enable ufw
