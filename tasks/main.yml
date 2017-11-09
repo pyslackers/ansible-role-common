@@ -25,6 +25,7 @@
   tags:
     - server-setup
     - sysstat
+  when: sysstat_enabled
 
 - import_tasks: ssh.yml
   tags:
@@ -37,3 +38,7 @@
     - ufw
   when: ufw_enabled
 
+- import_tasks: bash.yml
+  tags:
+    - server-setup
+    - bash

@@ -2,6 +2,8 @@
 
 # common.yml
 apt_cache_valid_time: 86000
+locales:
+  - en_US.UTF-8
 base_packages:
   - build-essential
   - curl
@@ -83,3 +85,19 @@ ssh_port: 22
 
 # ufw.yml
 ufw_enabled: true
+
+# sysstat.yml
+sysstat_enabled: true
+
+# bash.yml
+default_aliases:
+  ls: ls --color=auto
+  grep: grep --color=auto
+  c: clear
+  l: ls -CF
+  ll: ls -alF
+  la: ls -A
+  ..: cd ..
+  ...: cd ../..
+  ....: cd ../../..
+aliases: {}

@@ -13,17 +13,19 @@ None
 Role Variables
 --------------
 * `hostname_override`: Customize the hostname.
-* `apt_cache_valid_time`: Update the apt cache if its older than the `apt_cache_valid_time`.
 * `base_packages`: List of commonly required packages.
 * `custom_packages`: Custom list of packages to install (default is empty).
+* `locales`: List of locale to generate.
+* `aliases`: Dict of aliases to create in .bash_aliases (some defaults provided in `default_aliases`).
+* `apt_cache_valid_time`: Update the apt cache if its older than the `apt_cache_valid_time`.
 
 * `github_users`: List of github users to authorized.
 * `ssh_keys`: List of ssh keys to authorized.
 * `ssh_port`: Ssh listen port.
 
 * `ufw_enabled`: Enable UFW.
-* `fail2ban_enabled`: Enable fail2ban.
-
+* `fail2ban_enabled`: Install and enable fail2ban.
+* `sysstat_enabled`: Install and enable sysstat.
 
 * `user`: If defined create sudo user and block root login if one of `github_users` or `ssh_keys` is set.
 * `root_login`: Authorize root login (default to true).

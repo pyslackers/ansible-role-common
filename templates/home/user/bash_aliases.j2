@@ -1,0 +1,6 @@
+{% for name, command in default_aliases.items() %}
+alias {{ name }}='{{ command }}'
+{% endfor %}
+{% for name, command in aliases.items() %}
+alias {{ name }}='{{ command }}'
+{% endfor %}
