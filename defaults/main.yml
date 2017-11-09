@@ -13,6 +13,7 @@ base_packages:
   - bash-completion
   - ufw
   - sudo
+  - apt-transport-https
 
 
 # fail2ban.yml
