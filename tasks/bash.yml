@@ -1,0 +1,30 @@
+---
+- name: Set path
+  set_fact:
+    bash_path: "/home/{{ user }}"
+  when: user is defined
+
+- name: Set path
+  set_fact:
+    bash_path: "/root"
+  when: user is not defined
+
+- name: Set .bash_aliases in .bashrc
+  blockinfile:
+    path: "{{ bash_path }}/.bashrc"
+    block: |
+      # Alias definitions.
+      # You may want to put all your additions into a separate file like
+      # ~/.bash_aliases, instead of adding them here directly.
+      # See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+      if [ -f ~/.bash_aliases ]; then
+          . ~/.bash_aliases
+      fi
+
+- name: Copy .bash_aliases
+  template:
+    src: home/user/bash_aliases.j2
+    dest: "{{ bash_path }}/.bash_aliases"
+    owner: "{{ user | default('root') }}"
+    group: "{{ user | default('root') }}"

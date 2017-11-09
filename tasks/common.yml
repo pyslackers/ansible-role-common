@@ -4,6 +4,12 @@
     name: "{{ hostname_override }}"
   when: hostname_override is defined
 
+- name: Generate locale
+  locale_gen:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ locales }}"
+
 # May change due to https://github.com/ansible/ansible-modules-core/issues/3523
 - name: Install aptitude
   become: true
