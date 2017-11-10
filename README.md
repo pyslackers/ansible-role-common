@@ -3,12 +3,7 @@ Role Name
 
 [![Build Status](https://travis-ci.org/pyslackers/ansible-role-common.svg?branch=master)](https://travis-ci.org/pyslackers/ansible-role-common)
 
-Base role required for servers to be configurable by ansible, with basic security measures in place
-
-Requirements
-------------
-
-None
+Base role required for servers to be configurable by ansible, with basic security measures in place.
 
 Role Variables
 --------------
@@ -41,23 +36,21 @@ Example Playbook
 ----------------
 
 ```yml
-- role: pyslackers.common
-  github_users:
-    - ovv
-    - mrasband
-  ssh_port: 2222
-  ssh_keys:
-    - ssh-rsa AAAAA...
-  custom_packages:
-    - gzip
+- hosts: localhost
+  vars:
+    github_users:
+      - ovv
+      - mrasband
+    ssh_port: 2222
+    ssh_keys:
+      - ssh-rsa AAAAA...
+    custom_packages:
+      - gzip
+  roles: 
+    - pyslackers.common
 ```
 
 License
 -------
 
 MIT
-
-Author Information
-------------------
-
-None
