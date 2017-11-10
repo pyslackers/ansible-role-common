@@ -27,7 +27,7 @@ Role Variables
 * `fail2ban_enabled`: Install and enable fail2ban.
 * `sysstat_enabled`: Install and enable sysstat.
 
-* `user`: If defined create sudo user and block root login if one of `github_users` or `ssh_keys` is set.
+* `user`: Create sudo user.
 * `root_login`: Authorize root login (default to true).
 
 ![warning](https://github.com/pyslackers/ansible-role-common/blob/master/warning.png "Warning")
