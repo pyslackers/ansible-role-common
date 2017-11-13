@@ -91,4 +91,13 @@ Subsystem sftp /usr/lib/openssh/sftp-server
 # and ChallengeResponseAuthentication to 'no'.
 UsePAM yes
 
+{% for user in sftp_users %}
+Match User {{ user }}
+  PasswordAuthentication yes
+  ForceCommand internal-sftp
+  AllowTCPForwarding no
+  X11Forwarding no
+{% endfor %}
+
 {{ ssh_custom_config }}
+

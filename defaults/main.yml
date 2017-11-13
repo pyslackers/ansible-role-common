@@ -83,6 +83,7 @@ ntp_config_driftfile: /var/lib/ntp/ntp.drift
 root_login: true
 ssh_port: 22
 ssh_custom_config: ''
+sftp_users: {}
 
 # ufw.yml
 ufw_enabled: true
