@@ -24,6 +24,16 @@
   with_items: "{{ ssh_keys }}"
   when: "ssh_keys is defined"
 
+- name: Sftp users
+  no_log: True
+  user:
+    name: "{{ item.key }}"
+    password: "{{ item.value.password|password_hash('sha512') }}"
+    home: "{{ item.value.home | default(omit) }}"
+    createhome: yes
+    update_password: on_create
+  with_dict: "{{ sftp_users }}"
+
 - name: Ssh configuration
   become: true
   template:

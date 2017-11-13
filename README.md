@@ -23,6 +23,9 @@ Role Variables
 * `sysstat_enabled`: Install and enable sysstat.
 
 * `user`: Create sudo user.
+* `sftp_users`: Create user with sftp password login (the `key` is used as username).
+    * `password`: User password.
+    * `home`: User home directory (default to `/home/{{ user }}`).
 * `root_login`: Authorize root login (default to true).
 
 ![warning](https://github.com/pyslackers/ansible-role-common/blob/master/warning.png "Warning")
