@@ -2,6 +2,7 @@
 
 # common.yml
 apt_cache_valid_time: 86000
+apt_upgrade: yes
 locales:
   - en_US.UTF-8
 base_packages:
@@ -16,6 +17,8 @@ base_packages:
   - ufw
   - sudo
   - apt-transport-https
+  - ca-certificates
+  - software-properties-common
 
 
 # fail2ban.yml

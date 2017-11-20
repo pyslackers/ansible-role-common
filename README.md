@@ -13,6 +13,7 @@ Role Variables
 * `locales`: List of locale to generate.
 * `aliases`: Dict of aliases to create in .bash_aliases (some defaults provided in `default_aliases`).
 * `apt_cache_valid_time`: Update the apt cache if its older than the `apt_cache_valid_time`.
+* `apt_upgrade`: Update the installed packages. Support `full`, `dist` or `safe`, use `False` to deactivate (default is `safe`).
 
 * `github_users`: List of github users to authorized.
 * `ssh_keys`: List of ssh keys to authorized.
