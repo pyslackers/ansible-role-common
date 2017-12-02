@@ -3,6 +3,6 @@
   become: true
   ufw:
     rule: allow
-    name: OpenSSH
+    port: "{{ ssh_port }}"
   notify:
     - Enable ufw

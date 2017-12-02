@@ -1,11 +1,15 @@
 ---
+travis: False
 
 # common.yml
 apt_cache_valid_time: 86000
 apt_upgrade: yes
 locales:
   - en_US.UTF-8
+timezone: Etc/UTC
 base_packages:
+  - locales
+  - tzdata
   - build-essential
   - curl
   - git
