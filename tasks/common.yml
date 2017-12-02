@@ -4,12 +4,6 @@
     name: "{{ hostname_override }}"
   when: hostname_override is defined
 
-- name: Generate locale
-  locale_gen:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ locales }}"
-
 # May change due to https://github.com/ansible/ansible-modules-core/issues/3523
 - name: Install aptitude
   become: true
@@ -25,26 +19,10 @@
 
 - name: Upgrade packages
   become: true
-  tags:
-    - travis-exempt
   apt:
     upgrade: "{{ apt_upgrade }}"
   when:
     - apt_upgrade
-
-- name: Set timezone to UTC
-  timezone:
-    name: Etc/UTC
-  notify:
-    - Restart cron
-
-# Not sure if needed
-- name: Set localtime to UTC
-  file:
-    src: /usr/share/zoneinfo/Etc/UTC
-    dest: /etc/localtime
-  notify:
-    - Restart cron
 
 - name: Install base packages
   become: true
@@ -52,6 +30,26 @@
     pkg: "{{ item }}"
     state: latest
   with_items: "{{ base_packages }}"
+
+- name: Generate locale
+  locale_gen:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ locales }}"
+
+- name: "Set timezone {{ timezone }}"
+  timezone:
+    name: "{{ timezone }}"
+  notify:
+    - Restart cron
+
+# Not sure if needed
+- name: "Set localtime {{ timezone }}"
+  file:
+    src: "/usr/share/zoneinfo/{{ timezone }}"
+    dest: /etc/localtime
+  notify:
+    - Restart cron
 
 - name: Install custom packages
   become: true

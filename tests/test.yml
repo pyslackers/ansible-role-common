@@ -1,4 +1,6 @@
 ---
 - hosts: all
+  vars:
+    travis: True
   roles:
     - ansible-role-common

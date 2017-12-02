@@ -4,3 +4,4 @@
   service:
     name: ssh
     state: restarted
+  when: "not travis"
