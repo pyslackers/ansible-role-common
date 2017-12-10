@@ -28,3 +28,8 @@
     dest: "{{ bash_path }}/.bash_aliases"
     owner: "{{ user | default('root') }}"
     group: "{{ user | default('root') }}"
+
+- name: Vim configuration
+  template:
+    src: etc/vim/vimrc.local.j2
+    dest: /etc/vim/vimrc.local

@@ -110,3 +110,7 @@ default_aliases:
   ...: cd ../..
   ....: cd ../../..
 aliases: {}
+
+# vim
+vim_colorscheme: desert
+vim_custom: ''
