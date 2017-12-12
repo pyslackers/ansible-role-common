@@ -41,3 +41,10 @@
     dest: /etc/ssh/sshd_config
   notify:
     - Restart ssh
+
+- name: Create root key
+  user:
+    name: root
+    generate_ssh_key: true
+    ssh_key_bits: 4096
+    ssh_key_type: rsa
