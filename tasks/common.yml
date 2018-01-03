@@ -37,6 +37,13 @@
     state: present
   with_items: "{{ locales }}"
 
+- name: Set default locale
+  lineinfile:
+    path: /etc/default/locale
+    state: present
+    regexp: '^LANG='
+    line: 'LANG="{{ locales[0] }}"'
+
 - name: "Set timezone {{ timezone }}"
   timezone:
     name: "{{ timezone }}"
