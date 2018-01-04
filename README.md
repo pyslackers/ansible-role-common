@@ -30,6 +30,7 @@ Role Variables
     * `password`: User password.
     * `home`: User home directory (default to `/home/{{ user }}`).
 * `root_login`: Authorize root login (default to true).
+* `do_agent`: Install digital ocean monitoring agent.
 
 ![warning](https://github.com/pyslackers/ansible-role-common/blob/master/warning.png "Warning")
 Make sure to have ssh access with another user before disabling `root_login`.
