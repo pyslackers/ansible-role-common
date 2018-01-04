@@ -114,3 +114,6 @@ aliases: {}
 # vim
 vim_colorscheme: desert
 vim_custom: ''
+
+# digital_ocean
+do_agent: False

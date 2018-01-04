@@ -1,0 +1,17 @@
+---
+
+- name: Digital Ocean apt key
+  apt_key:
+    url: https://repos.sonar.digitalocean.com/sonar-agent.asc
+
+- name: Digital Ocean apt repository
+  apt_repository:
+    repo: "deb https://repos.sonar.digitalocean.com/apt main main"
+    update_cache: yes
+    state: present
+
+- name: install do-agent
+  apt:
+    pkg: do-agent
+    state: latest
+    force: yes

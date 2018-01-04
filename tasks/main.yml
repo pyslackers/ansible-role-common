@@ -42,3 +42,8 @@
   tags:
     - server-setup
     - bash
+
+- import_tasks: digital_ocean.yml
+  tags:
+    - digital_ocean
+  when: do_agent
