@@ -1,5 +1,5 @@
-Role Name
-=========
+pyslackers.common
+=================
 
 [![Build Status](https://travis-ci.org/pyslackers/ansible-role-common.svg?branch=master)](https://travis-ci.org/pyslackers/ansible-role-common)
 
