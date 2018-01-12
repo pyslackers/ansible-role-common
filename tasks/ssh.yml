@@ -1,14 +1,11 @@
 - name: Create /root/.ssh directory
   become: true
   file:
-    path: /root/.ssh
+    path: "{{ item }}"
     state: directory
-
-- name: Create /etc/ssh directory
-  become: true
-  file:
-    path: /etc/ssh
-    state: directory
+  with_items:
+    - /root/.ssh
+    - /etc/ssh
 
 - name: Set github authorized keys
   authorized_key:
