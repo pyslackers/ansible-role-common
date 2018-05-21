@@ -104,7 +104,7 @@ default_aliases:
   grep: grep --color=auto
   c: clear
   l: ls -CF
-  ll: ls -alF
+  ll: ls -alFh
   la: ls -A
   ..: cd ..
   ...: cd ../..
