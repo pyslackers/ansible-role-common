@@ -2,5 +2,6 @@
 - hosts: all
   vars:
     travis: True
+    primary_dns: 8.8.8.8
   roles:
     - ansible-role-common
