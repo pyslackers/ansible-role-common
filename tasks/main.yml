@@ -42,3 +42,9 @@
   tags:
     - server-setup
     - bash
+
+- import_tasks: dns.yml
+  tags:
+    - server-setup
+    - dns
+  when: primary_dns is defined
