@@ -65,3 +65,13 @@
     state: latest
   with_items: "{{ custom_packages }}"
   when: custom_packages is defined
+
+- name: Set sysctl values
+  become: true
+  sysctl:
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+    sysctl_file: "{{ sysctl_file }}"
+    state: present
+    reload: true
+  with_items: sysctl_config

@@ -114,3 +114,6 @@ aliases: {}
 # vim
 vim_colorscheme: desert
 vim_custom: ''
+
+sysctl_file: /etc/sysctl.conf
+sysctl_config: {}
