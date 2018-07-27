@@ -74,4 +74,4 @@
     sysctl_file: "{{ sysctl_file }}"
     state: present
     reload: true
-  with_dict: sysctl_config
+  with_dict: "{{ sysctl_config }}"
