@@ -83,7 +83,7 @@
   sysctl:
     name: "{{ item.key }}"
     value: "{{ item.value }}"
-    sysctl_file: "{{ sysctl_file }}"
+    sysctl_file: "/etc/sysctl.d/{{ sysctl_file }}"
     state: present
     reload: true
   with_dict: "{{ sysctl_config }}"

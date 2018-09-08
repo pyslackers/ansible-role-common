@@ -115,5 +115,5 @@ aliases: {}
 vim_colorscheme: desert
 vim_custom: ''
 
-sysctl_file: /etc/sysctl.conf
+sysctl_file: /etc/sysctl.d/50-ansible.conf
 sysctl_config: {}
