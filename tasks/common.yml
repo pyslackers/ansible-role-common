@@ -39,9 +39,8 @@
 - name: Install base packages
   become: true
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ base_packages }}"
     state: latest
-  with_items: "{{ base_packages }}"
 
 - name: Generate locale
   locale_gen:
@@ -73,9 +72,8 @@
 - name: Install custom packages
   become: true
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ custom_packages }}"
     state: latest
-  with_items: "{{ custom_packages }}"
   when: custom_packages is defined
 
 - name: Set sysctl values
