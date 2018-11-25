@@ -1,4 +1,11 @@
 ---
+
+- name: Ensure auth.log exists
+  copy:
+    dest: /var/log/auth.log
+    force: no
+    content: ""
+
 - name: Install fail2ban
   apt:
     pkg: fail2ban
@@ -15,12 +22,6 @@
     - etc/fail2ban/fail2ban.local
   notify:
     - Restart fail2ban
-
-- name: Ensure auth.log exists
-  copy:
-    dest: /var/log/auth.log
-    force: no
-    content: ""
 
 - name: Start fail2ban
   service:

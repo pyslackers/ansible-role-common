@@ -15,7 +15,7 @@
 
 [Resolve]
 DNS={{ primary_dns }}
-FallbackDNS={{ fallback_dns | default(['1.1.1.1' '1.1.0.0']) | join(' ') }}
+FallbackDNS={{ fallback_dns | default(['1.1.1.1', '1.1.0.0']) | join(' ') }}
 #Domains=
 #LLMNR=yes
 #DNSSEC=no

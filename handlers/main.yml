@@ -5,3 +5,4 @@
 - import_tasks: sysstat.yml
 - import_tasks: ssh.yml
 - import_tasks: ufw.yml
+- import_tasks: dns.yml
