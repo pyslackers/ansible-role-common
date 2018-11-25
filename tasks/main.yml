@@ -47,4 +47,6 @@
   tags:
     - server-setup
     - dns
-  when: primary_dns is defined
+  when: 
+    - primary_dns is defined
+    - "not travis"
