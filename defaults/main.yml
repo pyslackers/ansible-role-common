@@ -14,8 +14,6 @@ base_packages:
   - curl
   - git
   - vim
-  - ntp
-  - ntpdate
   - htop
   - bash-completion
   - ufw
@@ -94,6 +92,7 @@ sftp_users: {}
 
 # ufw.yml
 ufw_enabled: true
+ufw_ipv6: True
 
 # sysstat.yml
 sysstat_enabled: true
@@ -117,3 +116,5 @@ vim_custom: ''
 
 sysctl_file: 50-ansible.conf
 sysctl_config: {}
+
+bashrc_custom: ''

@@ -20,6 +20,7 @@
   tags:
     - server-setup
     - ntp
+  when: ntp_enabled
 
 - import_tasks: sysstat.yml
   tags:

@@ -1,4 +1,11 @@
 ---
+
+- name: Disable ufw
+  become: true
+  ufw:
+    state: disabled
+  notify: Enable ufw
+
 - name: Enable ufw
   become: true
   ufw:

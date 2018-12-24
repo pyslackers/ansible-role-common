@@ -1,4 +1,23 @@
 ---
+
+- name: Enable ipv6 for ufw
+  replace:
+    path: /etc/default/ufw
+    regexp: ^IPV6=no
+    replace: IPV6=yes
+  when: ufw_ipv6
+  notify:
+    - Disable ufw
+
+- name: Disable ipv6 for ufw
+  replace:
+    path: /etc/default/ufw
+    regexp: ^IPV6=yes
+    replace: IPV6=no
+  when: not ufw_ipv6
+  notify:
+    - Disable ufw
+
 - name: UFW allow SSH
   become: true
   ufw:
