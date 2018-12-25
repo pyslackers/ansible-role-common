@@ -51,6 +51,7 @@ fail2ban_services:
 
 
 # ntp.yml
+ntp_enabled: False
 ntp_pkg_state: 'installed'
 ntp_service_state: 'started'
 ntp_service_enabled: 'yes'
