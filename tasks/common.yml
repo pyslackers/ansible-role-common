@@ -32,9 +32,7 @@
 - name: Upgrade packages
   become: true
   apt:
-    upgrade: "{{ apt_upgrade | bool }}"
-  when:
-    - apt_upgrade
+    upgrade: "{{ apt_upgrade }}"
 
 - name: Install base packages
   become: true

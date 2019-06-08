@@ -5,7 +5,7 @@
     path: /etc/default/ufw
     regexp: ^IPV6=no
     replace: IPV6=yes
-  when: ufw_ipv6
+  when: ufw_ipv6 | bool
   notify:
     - Disable ufw
 

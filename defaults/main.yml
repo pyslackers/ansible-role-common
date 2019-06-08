@@ -3,7 +3,7 @@ travis: False
 
 # common.yml
 apt_cache_valid_time: 86000
-apt_upgrade: yes
+apt_upgrade: "yes"
 locales:
   - en_US.UTF-8
 timezone: Etc/UTC
@@ -87,7 +87,7 @@ ntp_config_driftfile: /var/lib/ntp/ntp.drift
 
 # ssh.yml
 root_login: true
-ssh_port: 22
+ssh_port: "22"
 ssh_custom_config: ''
 sftp_users: {}
 
